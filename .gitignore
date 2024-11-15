@@ -1,0 +1,6 @@
+*_fits/UncertPlots/
+*_fits/organized_hists.root
+*_fits/NMSSM-XHY-*_area/*.root
+*_fits/NMSSM-XHY-*_area/plots_fit_*
+*_fits/BACKUP*
+*_fits/NMSSM-XHY-*_area/outs
