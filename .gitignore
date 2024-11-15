@@ -6,6 +6,9 @@
 *_fits/NMSSM-XHY-*_area/outs
 *.txt
 condor/bias
+condor/limits
 backup*
 fits_of_VR_only/
 plots/
+*.root
+sigs_missing.json

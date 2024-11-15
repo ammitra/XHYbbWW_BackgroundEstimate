@@ -100,9 +100,21 @@ The `--makeCard` flag just creates the combined VR+SR card and `RooWorkspace` wi
 
 ## Step 3: Run expected limits, Asimov SR 
 
+Locally:
 ```
 ./scripts/run_blinded.sh --sig $sig --tf $tf --verbosity 2 --tol 0.1 --strat 2 --rmin -1 --rmax 2 --robustFit 0 -l 
 ```
+
+Condor:
+```
+python condor/submit_limits.py --sig 4000-2000 --tf 1x0 --seed 42 --tol 0.1 --strat 2
+```
+**NOTES:** 
+
+* The condor submission script *only* needs the `card.txt` locally. You don't need to run `MultiDimFit` snapshot locally first
+* The output from condor will be sent to the current working directory. Make sure to move it to the appropriate workspace automatically by using the script:
+   * `python scripts/move_limits.py --tf $tf`
+
 
 ## Step 4: Run `FitDiagnostics` in VR
 
@@ -137,7 +149,9 @@ To run 500 toys (50 jobs, 10 toys/job), run:
 python condor/submit_bias.py --sig $sig --tf $tf --toys-per-job 10 --num-jobs 50 --bias $bias
 ```
 
-The option arguments `--seed`, `--strat`, `--tol`, `--rmin`, `--rmax` can be passed to the python script as well, but they already default to the best values. 
+The condor submission script for bias tests requires that the `MultiDimFit` snapshot exists locally. The reason is that we want to verify that the fit worked well and the best-fit B-only parameters make sense before submitting the condor jobs, rather than doing workspace creation + B-only fit in the condor node. 
+
+The option arguments `--seed`, `--strat`, `--tol`, `--rmin`, `--rmax` can be passed to the python script as well, but they already default to the optimal values. 
 
 The outputs will be sent to the current working directory, so make sure to `mv` them to the proper workspace after they've finished. 
 
@@ -157,3 +171,6 @@ Located in the `scripts/` directory:
 * `make_systematic_plots.py`: uses 2DAlphabet to produce plots of all processes subject to their systematic uncertainties. Just specify a workspace directory. Requires that the workspace exists
 * `plot_gof.py`: plots the goodness of fit results from the VR
 * `compare_nuisances.py`: compares the nuisance parameters b/w the `FitDiagnosticsTest` and `MultiDimFit` results to ensure compatibility with one another. 
+* `find_missing_signals.py`: loops over all possible mass points and checks (for kinematically-allowed mass points) whether all templates are available. If the mass point is missing some centrally-produced files, it outputs the signal name and missing years to a JSON file. Otherwise, if there are not the expected number of template files due to some mistake in selection, it saves them to a text file for later checks. 
+* `run_limits.sh`: loops over all signal mass points and creates the combined card + `RooWorkspace` (if they do not exist), runs B-only `MultiDimFit` (if snapshot does not already exist), then `AsymptoticLimits` locally. **Warning:** this will take a while to run locally. You should use the condor submission explained above.
+* `make_RooWorkspace.sh`: runs locally, generates the cards + `RooWorkspace` for all signal mass points. 
