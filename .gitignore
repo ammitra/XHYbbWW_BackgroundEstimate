@@ -4,3 +4,5 @@
 *_fits/NMSSM-XHY-*_area/plots_fit_*
 *_fits/BACKUP*
 *_fits/NMSSM-XHY-*_area/outs
+*.txt
+condor/bias
