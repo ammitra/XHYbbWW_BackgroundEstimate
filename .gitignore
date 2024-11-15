@@ -6,3 +6,6 @@
 *_fits/NMSSM-XHY-*_area/outs
 *.txt
 condor/bias
+backup*
+fits_of_VR_only/
+plots/

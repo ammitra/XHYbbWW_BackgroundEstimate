@@ -1,0 +1,758 @@
+{
+    "NAME": "XHY_CR",
+    "GLOBAL": {
+        "FILE": "XHYbbWWselection_$process.root",
+        "FILE_UP": "XHYbbWWselection_$process_$syst_up.root",
+        "FILE_DOWN": "XHYbbWWselection_$process_$syst_down.root",
+        "HIST": "MXvsMY_$region__nominal",
+        "HIST_UP": "MXvsMY_$region__$syst_up",
+        "HIST_DOWN": "MXvsMY_$region__$syst_down",
+        "path": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection",
+        "SIGNAME": [
+            "NMSSM-XHY-XMASS-YMASS"
+        ]
+    },
+    "REGIONS": {
+        "VR_fail": {
+            "PROCESSES": [
+                "data_obs",
+                "SIGNAME_16APV",
+                "SIGNAME_16",
+                "SIGNAME_17",
+                "SIGNAME_18",
+                "ST_16APV",
+                "ST_16",
+                "ST_17",
+                "ST_18",
+                "ttbar_16APV",
+                "ttbar_16",
+                "ttbar_17",
+                "ttbar_18",
+                "ZJets_16APV",
+                "ZJets_16",
+                "ZJets_17",
+                "ZJets_18",
+                "WJets_16APV",
+                "WJets_16",
+                "WJets_17",
+                "WJets_18"
+            ],
+            "BINNING": "default"
+        },
+        "VR_pass": {
+            "PROCESSES": [
+                "data_obs",
+                "SIGNAME_16APV",
+                "SIGNAME_16",
+                "SIGNAME_17",
+                "SIGNAME_18",
+                "ST_16APV",
+                "ST_16",
+                "ST_17",
+                "ST_18",
+                "ttbar_16APV",
+                "ttbar_16",
+                "ttbar_17",
+                "ttbar_18",
+                "ZJets_16APV",
+                "ZJets_16",
+                "ZJets_17",
+                "ZJets_18",
+                "WJets_16APV",
+                "WJets_16",
+                "WJets_17",
+                "WJets_18"
+            ],
+            "BINNING": "default"
+        }
+    },
+    "PROCESSES": {
+        "data_obs": {
+            "SYSTEMATICS": [],
+            "SCALE": 1.0,
+            "COLOR": "black",
+            "TYPE": "DATA",
+            "ALIAS": "Data_Run2",
+            "TITLE": "Data",
+            "LOC": "path/FILE:HIST"
+        },
+        "SIGNAME_16APV": {
+            "SYSTEMATICS": [
+                "lumi_13TeV_2016",
+                "CMS_pileup_2016",
+                "CMS_res_j_2016",
+                "CMS_scale_j_2016",
+                "CMS_scale_jm_2016",
+                "CMS_res_jm_2016",
+                "lumi_correlated",
+                "CMS_l1_ecal_prefiring_2016",
+                "CMS_bbww_TriggerWeight_2016",
+                "CMS_bbWW_PNetHbb_tag",
+                "CMS_bbWW_PNetWqq_tag"  
+            ],
+            "SCALE": 1.0,
+            "COLOR": "black",
+            "TYPE": "SIGNAL",
+            "TITLE": "NMSSM",
+            "LOC": "path/FILE:HIST"
+        },
+        "SIGNAME_16": {
+            "SYSTEMATICS": [
+                "lumi_13TeV_2016",
+                "CMS_pileup_2016",
+                "CMS_res_j_2016",
+                "CMS_scale_j_2016",
+                "CMS_scale_jm_2016",
+                "CMS_res_jm_2016",
+                "lumi_correlated",
+                "CMS_l1_ecal_prefiring_2016",
+                "CMS_bbww_TriggerWeight_2016",
+                "CMS_bbWW_PNetHbb_tag",
+                "CMS_bbWW_PNetWqq_tag"  
+            ],
+            "SCALE": 1.0,
+            "COLOR": "black",
+            "TYPE": "SIGNAL",
+            "TITLE": "NMSSM",
+            "LOC": "path/FILE:HIST"
+        },
+        "SIGNAME_17": {
+            "SYSTEMATICS": [
+                "lumi_13TeV_2017",
+                "CMS_pileup_2017",
+                "CMS_res_j_2017",
+                "CMS_scale_j_2017",
+                "CMS_scale_jm_2017",
+                "CMS_res_jm_2017",
+                "lumi_correlated",
+                "CMS_l1_ecal_prefiring_2017",
+                "CMS_bbww_TriggerWeight_2017",
+                "CMS_bbWW_PNetHbb_tag",
+                "CMS_bbWW_PNetWqq_tag"  
+            ],
+            "SCALE": 1.0,
+            "COLOR": "black",
+            "TYPE": "SIGNAL",
+            "TITLE": "NMSSM",
+            "LOC": "path/FILE:HIST"
+        },
+        "SIGNAME_18": {
+            "SYSTEMATICS": [
+                "lumi_13TeV_2018",
+                "CMS_pileup_2018",
+                "CMS_res_j_2018",
+                "CMS_scale_j_2018",
+                "CMS_scale_jm_2018",
+                "CMS_res_jm_2018",
+                "lumi_correlated",
+                "CMS_bbww_TriggerWeight_2018",
+                "CMS_bbWW_PNetHbb_tag",
+                "CMS_bbWW_PNetWqq_tag"  
+            ],
+            "SCALE": 1.0,
+            "COLOR": "black",
+            "TYPE": "SIGNAL",
+            "TITLE": "NMSSM",
+            "LOC": "path/FILE:HIST"
+        },
+        "ST_16APV": {
+            "SYSTEMATICS": [
+                "lumi_13TeV_2016",
+                "CMS_pileup_2016",
+                "CMS_res_j_2016",
+                "CMS_scale_j_2016",
+                "lumi_correlated",
+                "CMS_scale_jm_2016",
+                "CMS_res_jm_2016",
+                "CMS_l1_ecal_prefiring_2016",
+                "CMS_bbww_TriggerWeight_2016",
+                "ps_isr",
+                "ps_fsr",
+                "QCDscale_ST"
+            ],
+            "SCALE": 1.0,
+            "COLOR": "orange",
+            "TYPE": "BKG",
+            "TITLE": "Single top",
+            "LOC": "path/FILE:HIST"
+        },
+        "ST_16": {
+            "SYSTEMATICS": [
+                "lumi_13TeV_2016",
+                "CMS_pileup_2016",
+                "CMS_res_j_2016",
+                "CMS_scale_j_2016",
+                "lumi_correlated",
+                "CMS_scale_jm_2016",
+                "CMS_res_jm_2016",
+                "CMS_l1_ecal_prefiring_2016",
+                "CMS_bbww_TriggerWeight_2016",
+                "ps_isr",
+                "ps_fsr",
+                "QCDscale_ST"
+            ],
+            "SCALE": 1.0,
+            "COLOR": "orange",
+            "TYPE": "BKG",
+            "TITLE": "Single top",
+            "LOC": "path/FILE:HIST"
+        },
+        "ST_17": {
+            "SYSTEMATICS": [
+                "lumi_13TeV_2017",
+                "CMS_pileup_2017",
+                "CMS_res_j_2017",
+                "CMS_scale_j_2017",
+                "lumi_correlated",
+                "CMS_scale_jm_2017",
+                "CMS_res_jm_2017",
+                "CMS_l1_ecal_prefiring_2017",
+                "CMS_bbww_TriggerWeight_2017",
+                "ps_isr",
+                "ps_fsr",
+                "QCDscale_ST"
+            ],
+            "SCALE": 1.0,
+            "COLOR": "orange",
+            "TYPE": "BKG",
+            "TITLE": "Single top",
+            "LOC": "path/FILE:HIST"
+        },
+        "ST_18": {
+            "SYSTEMATICS": [
+                "lumi_13TeV_2018",
+                "CMS_pileup_2018",
+                "CMS_res_j_2018",
+                "CMS_scale_j_2018",
+                "lumi_correlated",
+                "CMS_scale_jm_2018",
+                "CMS_res_jm_2018",
+                "CMS_bbww_TriggerWeight_2018",
+                "ps_isr",
+                "ps_fsr",
+                "QCDscale_ST"
+            ],
+            "SCALE": 1.0,
+            "COLOR": "orange",
+            "TYPE": "BKG",
+            "TITLE": "Single top",
+            "LOC": "path/FILE:HIST"
+        },
+        "ttbar_16APV": {
+            "SYSTEMATICS": [
+                "lumi_13TeV_2016",
+                "CMS_pileup_2016",
+                "CMS_res_j_2016",
+                "CMS_scale_j_2016",
+                "lumi_correlated",
+                "CMS_scale_jm_2016",
+                "CMS_res_jm_2016",
+                "CMS_l1_ecal_prefiring_2016",
+                "CMS_bbww_TriggerWeight_2016",
+                "CMS_bbWW_PNetHbb_mistag",
+                "CMS_bbWW_PNetWqq_mistag",
+                "ps_isr",
+                "ps_fsr",
+                "QCDscale_ttbar"
+
+            ],
+            "SCALE": 1.0,
+            "COLOR": "red",
+            "TYPE": "BKG",
+            "TITLE": "t#bar{t}",
+            "LOC": "path/FILE:HIST"
+        },
+        "ttbar_16": {
+            "SYSTEMATICS": [
+                "lumi_13TeV_2016",
+                "CMS_pileup_2016",
+                "CMS_res_j_2016",
+                "CMS_scale_j_2016",
+                "lumi_correlated",
+                "CMS_scale_jm_2016",
+                "CMS_res_jm_2016",
+                "CMS_l1_ecal_prefiring_2016",
+                "CMS_bbww_TriggerWeight_2016",
+                "CMS_bbWW_PNetHbb_mistag",
+                "CMS_bbWW_PNetWqq_mistag",
+                "ps_isr",
+                "ps_fsr",
+                "QCDscale_ttbar"
+                
+            ],
+            "SCALE": 1.0,
+            "COLOR": "red",
+            "TYPE": "BKG",
+            "TITLE": "t#bar{t}",
+            "LOC": "path/FILE:HIST"
+        },
+        "ttbar_17": {
+            "SYSTEMATICS": [
+                "lumi_13TeV_2017",
+                "CMS_pileup_2017",
+                "CMS_res_j_2017",
+                "CMS_scale_j_2017",
+                "lumi_correlated",
+                "CMS_scale_jm_2017",
+                "CMS_res_jm_2017",
+                "CMS_l1_ecal_prefiring_2017",
+                "CMS_bbww_TriggerWeight_2017",
+                "CMS_bbWW_PNetHbb_mistag",
+                "CMS_bbWW_PNetWqq_mistag",
+                "ps_isr",
+                "ps_fsr",
+                "QCDscale_ttbar"
+                
+            ],
+            "SCALE": 1.0,
+            "COLOR": "red",
+            "TYPE": "BKG",
+            "TITLE": "t#bar{t}",
+            "LOC": "path/FILE:HIST"
+        },
+        "ttbar_18": {
+            "SYSTEMATICS": [
+                "lumi_13TeV_2018",
+                "CMS_pileup_2018",
+                "CMS_res_j_2018",
+                "CMS_scale_j_2018",
+                "lumi_correlated",
+                "CMS_scale_jm_2018",
+                "CMS_res_jm_2018",
+                "CMS_bbww_TriggerWeight_2018",
+                "CMS_bbWW_PNetHbb_mistag",
+                "CMS_bbWW_PNetWqq_mistag",
+                "ps_isr",
+                "ps_fsr",
+                "QCDscale_ttbar"
+                
+            ],
+            "SCALE": 1.0,
+            "COLOR": "red",
+            "TYPE": "BKG",
+            "TITLE": "t#bar{t}",
+            "LOC": "path/FILE:HIST"
+        },
+        "ZJets_16APV": {
+            "SYSTEMATICS": [
+                "lumi_13TeV_2016",
+                "CMS_pileup_2016",
+                "CMS_res_j_2016",
+                "CMS_scale_j_2016",
+                "lumi_correlated",
+                "CMS_scale_jm_2016",
+                "CMS_res_jm_2016",
+                "CMS_l1_ecal_prefiring_2016",
+                "CMS_bbww_TriggerWeight_2016",
+                "ps_isr",
+                "ps_fsr",
+                "QCDscale_V"
+            ],
+            "SCALE": 1.0,
+            "COLOR": "blue",
+            "TYPE": "BKG",
+            "TITLE": "Z+ jets",
+            "LOC": "path/FILE:HIST"
+        },
+        "ZJets_16": {
+            "SYSTEMATICS": [
+                "lumi_13TeV_2016",
+                "CMS_pileup_2016",
+                "CMS_res_j_2016",
+                "CMS_scale_j_2016",
+                "lumi_correlated",
+                "CMS_scale_jm_2016",
+                "CMS_res_jm_2016",
+                "CMS_l1_ecal_prefiring_2016",
+                "CMS_bbww_TriggerWeight_2016",
+                "ps_isr",
+                "ps_fsr",
+                "QCDscale_V"
+            ],
+            "SCALE": 1.0,
+            "COLOR": "blue",
+            "TYPE": "BKG",
+            "TITLE": "Z+ jets",
+            "LOC": "path/FILE:HIST"
+        },
+        "ZJets_17": {
+            "SYSTEMATICS": [
+                "lumi_13TeV_2017",
+                "CMS_pileup_2017",
+                "CMS_res_j_2017",
+                "CMS_scale_j_2017",
+                "lumi_correlated",
+                "CMS_scale_jm_2017",
+                "CMS_res_jm_2017",
+                "CMS_l1_ecal_prefiring_2017",
+                "CMS_bbww_TriggerWeight_2017",
+                "ps_isr",
+                "ps_fsr",
+                "QCDscale_V"
+            ],
+            "SCALE": 1.0,
+            "COLOR": "blue",
+            "TYPE": "BKG",
+            "TITLE": "Z+ jets",
+            "LOC": "path/FILE:HIST"
+        },
+        "ZJets_18": {
+            "SYSTEMATICS": [
+                "lumi_13TeV_2018",
+                "CMS_pileup_2018",
+                "CMS_res_j_2018",
+                "CMS_scale_j_2018",
+                "lumi_correlated",
+                "CMS_scale_jm_2018",
+                "CMS_res_jm_2018",
+                "CMS_bbww_TriggerWeight_2018",
+                "ps_isr",
+                "ps_fsr",
+                "QCDscale_V"
+            ],
+            "SCALE": 1.0,
+            "COLOR": "blue",
+            "TYPE": "BKG",
+            "TITLE": "Z+ jets",
+            "LOC": "path/FILE:HIST"
+        },
+        "WJets_16APV": {
+            "SYSTEMATICS": [
+                "lumi_13TeV_2016",
+                "CMS_pileup_2016",
+                "CMS_res_j_2016",
+                "CMS_scale_j_2016",
+                "lumi_correlated",
+                "CMS_scale_jm_2016",
+                "CMS_res_jm_2016",
+                "CMS_l1_ecal_prefiring_2016",
+                "CMS_bbww_TriggerWeight_2016",
+                "ps_isr",
+                "ps_fsr",
+                "QCDscale_V"
+            ],
+            "SCALE": 1.0,
+            "COLOR": "green",
+            "TYPE": "BKG",
+            "TITLE": "W+ jets",
+            "LOC": "path/FILE:HIST"
+        },
+        "WJets_16": {
+            "SYSTEMATICS": [
+                "lumi_13TeV_2016",
+                "CMS_pileup_2016",
+                "CMS_res_j_2016",
+                "CMS_scale_j_2016",
+                "lumi_correlated",
+                "CMS_scale_jm_2016",
+                "CMS_res_jm_2016",
+                "CMS_l1_ecal_prefiring_2016",
+                "CMS_bbww_TriggerWeight_2016",
+                "ps_isr",
+                "ps_fsr",
+                "QCDscale_V"
+            ],
+            "SCALE": 1.0,
+            "COLOR": "green",
+            "TYPE": "BKG",
+            "TITLE": "W+ jets",
+            "LOC": "path/FILE:HIST"
+        },
+        "WJets_17": {
+            "SYSTEMATICS": [
+                "lumi_13TeV_2017",
+                "CMS_pileup_2017",
+                "CMS_res_j_2017",
+                "CMS_scale_j_2017",
+                "lumi_correlated",
+                "CMS_scale_jm_2017",
+                "CMS_res_jm_2017",
+                "CMS_l1_ecal_prefiring_2017",
+                "CMS_bbww_TriggerWeight_2017",
+                "ps_isr",
+                "ps_fsr",
+                "QCDscale_V"
+            ],
+            "SCALE": 1.0,
+            "COLOR": "green",
+            "TYPE": "BKG",
+            "TITLE": "W+ jets",
+            "LOC": "path/FILE:HIST"
+        },
+        "WJets_18": {
+            "SYSTEMATICS": [
+                "lumi_13TeV_2018",
+                "CMS_pileup_2018",
+                "CMS_res_j_2018",
+                "CMS_scale_j_2018",
+                "lumi_correlated",
+                "CMS_scale_jm_2018",
+                "CMS_res_jm_2018",
+                "CMS_bbww_TriggerWeight_2018",
+                "ps_isr",
+                "ps_fsr",
+                "QCDscale_V"
+            ],
+            "SCALE": 1.0,
+            "COLOR": "green",
+            "TYPE": "BKG",
+            "TITLE": "W+ jets",
+            "LOC": "path/FILE:HIST"
+        }
+    },
+    "SYSTEMATICS": {
+        "lumi_13TeV_2016": {
+            "VAL": 1.01,
+            "CODE": 0
+        },
+        "lumi_13TeV_2017": {
+            "VAL": 1.02,
+            "CODE": 0
+        },
+        "lumi_13TeV_2018": {
+            "VAL": 1.015,
+            "CODE": 0
+        },
+        "lumi_correlated": {
+            "VAL": 1.016,
+            "CODE": 0
+        },
+        "CMS_pileup_2016": {
+            "ALIAS": "Pileup",
+            "UP": "path/FILE:HIST_UP",
+            "DOWN": "path/FILE:HIST_DOWN",
+            "SIGMA": 1.0
+        },
+        "CMS_pileup_2017": {
+            "ALIAS": "Pileup",
+            "UP": "path/FILE:HIST_UP",
+            "DOWN": "path/FILE:HIST_DOWN",
+            "SIGMA": 1.0
+        },
+        "CMS_pileup_2018": {
+            "ALIAS": "Pileup",
+            "UP": "path/FILE:HIST_UP",
+            "DOWN": "path/FILE:HIST_DOWN",
+            "SIGMA": 1.0
+        },
+        "CMS_res_j_2016": {
+            "ALIAS": "JER",
+            "UP": "path/FILE_UP:HIST",
+            "DOWN": "path/FILE_DOWN:HIST",
+            "SIGMA": 1.0
+        },
+        "CMS_res_j_2017": {
+            "ALIAS": "JER",
+            "UP": "path/FILE_UP:HIST",
+            "DOWN": "path/FILE_DOWN:HIST",
+            "SIGMA": 1.0
+        },
+        "CMS_res_j_2018": {
+            "ALIAS": "JER",
+            "UP": "path/FILE_UP:HIST",
+            "DOWN": "path/FILE_DOWN:HIST",
+            "SIGMA": 1.0
+        },
+        "CMS_scale_j_2016": {
+            "ALIAS": "JES",
+            "UP": "path/FILE_UP:HIST",
+            "DOWN": "path/FILE_DOWN:HIST",
+            "SIGMA": 1.0
+        },
+        "CMS_scale_j_2017": {
+            "ALIAS": "JES",
+            "UP": "path/FILE_UP:HIST",
+            "DOWN": "path/FILE_DOWN:HIST",
+            "SIGMA": 1.0
+        },
+        "CMS_scale_j_2018": {
+            "ALIAS": "JES",
+            "UP": "path/FILE_UP:HIST",
+            "DOWN": "path/FILE_DOWN:HIST",
+            "SIGMA": 1.0
+        },
+        "CMS_scale_jm_2016": {
+            "ALIAS": "JMS",
+            "UP": "path/FILE_UP:HIST",
+            "DOWN": "path/FILE_DOWN:HIST",
+            "SIGMA": 1.0
+        },
+        "CMS_scale_jm_2017": {
+            "ALIAS": "JMS",
+            "UP": "path/FILE_UP:HIST",
+            "DOWN": "path/FILE_DOWN:HIST",
+            "SIGMA": 1.0
+        },
+        "CMS_scale_jm_2018": {
+            "ALIAS": "JMS",
+            "UP": "path/FILE_UP:HIST",
+            "DOWN": "path/FILE_DOWN:HIST",
+            "SIGMA": 1.0
+        },
+        "CMS_res_jm_2016": {
+            "ALIAS": "JMR",
+            "UP": "path/FILE_UP:HIST",
+            "DOWN": "path/FILE_DOWN:HIST",
+            "SIGMA": 1.0
+        },
+        "CMS_res_jm_2017": {
+            "ALIAS": "JMR",
+            "UP": "path/FILE_UP:HIST",
+            "DOWN": "path/FILE_DOWN:HIST",
+            "SIGMA": 1.0
+        },
+        "CMS_res_jm_2018": {
+            "ALIAS": "JMR",
+            "UP": "path/FILE_UP:HIST",
+            "DOWN": "path/FILE_DOWN:HIST",
+            "SIGMA": 1.0
+        },
+        "CMS_l1_ecal_prefiring_2016": {
+            "ALIAS": "L1PreFireWeight",
+            "UP": "path/FILE:HIST_UP",
+            "DOWN": "path/FILE:HIST_DOWN",
+            "SIGMA": 1.0
+        },
+        "CMS_l1_ecal_prefiring_2017": {
+            "ALIAS": "L1PreFireWeight",
+            "UP": "path/FILE:HIST_UP",
+            "DOWN": "path/FILE:HIST_DOWN",
+            "SIGMA": 1.0
+        },
+        "CMS_bbww_TriggerWeight_2016": {
+            "ALIAS": "TriggerEff16",
+            "UP": "path/FILE:HIST_UP",
+            "DOWN": "path/FILE:HIST_DOWN",
+            "SIGMA": 1.0
+        },
+        "CMS_bbww_TriggerWeight_2018": {
+            "ALIAS": "TriggerEff18",
+            "UP": "path/FILE:HIST_UP",
+            "DOWN": "path/FILE:HIST_DOWN",
+            "SIGMA": 1.0
+        },
+        "CMS_bbww_TriggerWeight_2017": {
+            "ALIAS": "TriggerEff17",
+            "UP": "path/FILE:HIST_UP",
+            "DOWN": "path/FILE:HIST_DOWN",
+            "SIGMA": 1.0
+        },
+        "CMS_bbWW_PNetHbb_tag": {
+            "ALIAS": "PNetMD_Hbb_tag",
+            "UP": "path/FILE:HIST_UP",
+            "DOWN": "path/FILE:HIST_DOWN",
+            "SIGMA": 1.0
+        },
+        "CMS_bbWW_PNetWqq_tag": {
+            "ALIAS": "PNet_W_tag",
+            "UP": "path/FILE:HIST_UP",
+            "DOWN": "path/FILE:HIST_DOWN",
+            "SIGMA": 1.0
+        },
+        "CMS_bbWW_PNetHbb_mistag": {
+            "ALIAS": "PNetMD_Hbb_mistag",
+            "UP": "path/FILE:HIST_UP",
+            "DOWN": "path/FILE:HIST_DOWN",
+            "SIGMA": 1.0
+        },
+        "CMS_bbWW_PNetWqq_mistag": {
+            "ALIAS": "PNet_W_mistag",
+            "UP": "path/FILE:HIST_UP",
+            "DOWN": "path/FILE:HIST_DOWN",
+            "SIGMA": 1.0
+        },
+        "pdf_shape": {
+            "ALIAS": "Pdfweight",
+            "UP": "path/FILE:HIST_UP",
+            "DOWN": "path/FILE:HIST_DOWN",
+            "SIGMA": 1.0
+        },
+        "ps_isr": {
+            "ALIAS": "ISRunc",
+            "UP": "path/FILE:HIST_UP",
+            "DOWN": "path/FILE:HIST_DOWN",
+            "SIGMA": 1.0
+        },
+        "ps_fsr": {
+            "ALIAS": "FSRunc",
+            "UP": "path/FILE:HIST_UP",
+            "DOWN": "path/FILE:HIST_DOWN",
+            "SIGMA": 1.0
+        },
+        "QCDscale_ttbar": {
+            "ALIAS": "QCDscale_uncert",
+            "UP": "path/FILE:HIST_UP",
+            "DOWN": "path/FILE:HIST_DOWN",
+            "SIGMA": 1.0
+        },
+        "QCDscale_V": {
+            "ALIAS": "QCDscale_uncert",
+            "UP": "path/FILE:HIST_UP",
+            "DOWN": "path/FILE:HIST_DOWN",
+            "SIGMA": 1.0
+        },
+        "QCDscale_ST": {
+            "ALIAS": "QCDscale_uncert",
+            "UP": "path/FILE:HIST_UP",
+            "DOWN": "path/FILE:HIST_DOWN",
+            "SIGMA": 1.0
+        }
+    },
+    "BINNING": {
+        "default": {
+            "X": {
+                "NAME": "M_HWW",
+                "TITLE": "m_{X}",
+                "BINS": [
+                    800,
+                    900,
+                    1000,
+                    1100,
+                    1200,
+                    1300,
+                    1400,
+                    1600,
+                    2000,
+                    3000,
+                    4500
+                ],
+                "SIGSTART": 1100,
+                "SIGEND": 1400
+            },
+            "Y": {
+                "NAME": "M_WW",
+                "TITLE": "M_{Y}",
+                "BINS": [
+                    300, 
+                    400,
+                    500,
+                    600,
+                    700,
+                    800,
+                    900,
+                    1000,
+                    1500,
+                    2000,
+                    3000,
+                    4500
+                ],
+                "SLICES": [
+                    300,
+                    500,
+                    800,
+                    4500
+                ]
+            }
+        }
+    },
+    "OPTIONS": {
+        "blindedPlots": [],
+        "blindedFit": [],
+        "plotPrefitSigInFitB": true,
+        "plotUncerts": true,
+        "plotEvtsPerUnit": true,
+        "plotTitles": false,
+        "plotTemplateComparisons": false,
+        "year": 2
+    }
+}
