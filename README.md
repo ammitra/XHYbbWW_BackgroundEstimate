@@ -115,7 +115,10 @@ python condor/submit_limits.py --sig 4000-2000 --tf 1x0 --seed 42 --tol 0.1 --st
 * The output from condor will be sent to the current working directory. Make sure to move it to the appropriate workspace automatically by using the script:
     * `python scripts/move_limits.py --tf $tf`
 * After moving the condor outputs to their respective directories, run
-    * `python scripts/2Dlims.py`
+    * `python scripts/2Dlims.py` - generates 2D limits (scatter and log interp) for all signal mass points
+    * `python scripts/2Dlims_onlyRelevantSignals.py` - generates 2D limits (scatter and log interp) for all *relevant* signals, i.e. those included in the fit ($m_X \geq 800$ and $m_Y \geq 300$)
+    * `python scripts/column_limit_plots.py` - generates a 4x4 grid of 1D limits as a function of $m_Y$ for all considered $m_X$ 
+
 
 
 ## Step 4: Run `FitDiagnostics` in VR
@@ -161,6 +164,25 @@ After moving the output, plot the bias test results using
 ```
 python scripts/plot_bias.py --tf $tf --sig $sig --bias $bias
 ```
+
+## Step 7: Goodness of fit, VR 
+
+First run on data in VR
+```
+./scripts/run_blinded.sh --sig $sig --tf $tf --rmin -1 --rmax 2 --strat 2 --tol 0.1 --verbosity 2 -g
+```
+
+Then run on toys:
+```
+./scripts/run_blinded.sh --sig $sig --tf $tf --rmin -1 --rmax 2 --strat 2 --tol 0.1 --verbosity 2 -t --numtoys 500
+```
+
+Then plot:
+```
+python scripts/plot_gof.py --sig $sig --tf $tf --seed $seed
+```
+
+**TODO:** Maybe write a condor script for gof submission. Though, we only need to do this once (since there is only one VR) and it doesn't take too long to run 500 toys locally. 
 
 
 ## Extra scripts 

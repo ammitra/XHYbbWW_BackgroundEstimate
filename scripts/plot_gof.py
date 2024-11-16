@@ -24,7 +24,7 @@ def plot_gof(fit_dir, seed=123456):
     pvalue = 1-(1/gaus.Integral(-float("inf"),float("inf")))*gaus.Integral(-float("inf"),gof_data)
 
     # Write out for reference
-    with open(f'{fit_dir}gof_results.txt','w') as out:
+    with open(f'{fit_dir}/gof_results.txt','w') as out:
         out.write('Test statistic in data = '+str(gof_data))
         out.write('Mean from toys = '+str(gaus.GetParameter(1)))
         out.write('Width from toys = '+str(gaus.GetParameter(2)))
@@ -63,19 +63,23 @@ def plot_gof(fit_dir, seed=123456):
     arrow.Draw()
     leg.Draw()
 
-    cout.Print(f'{fit_dir}gof_plot.pdf','pdf')
-    cout.Print(f'{fit_dir}gof_plot.png','png')
+    cout.Print(f'{fit_dir}/gof_plot.pdf','pdf')
+    cout.Print(f'{fit_dir}/gof_plot.png','png')
 
 if __name__ == "__main__":
     from argparse import ArgumentParser
     parser = ArgumentParser()
-    parser.add_argument('-w', type=str, dest='workspace',
-                        action='store', default='VR',
-                        help='directory containing the GoF from data + toys')
-    parser.add_argument('-s', type=str, dest='seed',
+    parser.add_argument('--sig', type=str, dest='sig',
+                        action='store', default='1800-1200',
+                        help='signame')
+    parser.add_argument('--tf',type=str, dest='tf',
+                        action='store', default='1x0',
+                        help='tf')
+    parser.add_argument('--seed', type=str, dest='seed',
                         action='store', default='42',
                         help='seed used in toy generation')
 
     args = parser.parse_args()
+    workspace = f'{args.sig}_fits/NMSSM-XHY-{args.sig}-SR{args.tf}-VR{args.tf}_area'
 
-    plot_gof(args.workspace, args.seed)
+    plot_gof(workspace, args.seed)
