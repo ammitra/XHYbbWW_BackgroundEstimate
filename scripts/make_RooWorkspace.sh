@@ -10,7 +10,9 @@ do
     do
         for tf in 1x0 
         do
-            if [ ! -d "${mx}-${my}_fits/" ]; then 
+            if (( $mx < ($my + 125)  )) ; then 
+                echo "Skipping $mx,$my - not kinematically allowed"
+            elif [ ! -d "${mx}-${my}_fits/" ]; then 
                 echo "Skipping $mx,$my - no workspace exists"
             elif [ ! -f "${mx}-${my}_fits/base.root" ]; then 
                 echo "Skipping $mx,$my - workspace exists but this mass point is missing samples."

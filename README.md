@@ -113,7 +113,9 @@ python condor/submit_limits.py --sig 4000-2000 --tf 1x0 --seed 42 --tol 0.1 --st
 
 * The condor submission script *only* needs the `card.txt` locally. You don't need to run `MultiDimFit` snapshot locally first
 * The output from condor will be sent to the current working directory. Make sure to move it to the appropriate workspace automatically by using the script:
-   * `python scripts/move_limits.py --tf $tf`
+    * `python scripts/move_limits.py --tf $tf`
+* After moving the condor outputs to their respective directories, run
+    * `python scripts/2Dlims.py`
 
 
 ## Step 4: Run `FitDiagnostics` in VR

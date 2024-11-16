@@ -95,9 +95,12 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # check if the required input files have been produced already. This script only needs a combined card
+    cards_dir = Path(f'{args.sig}_fits/NMSSM-XHY-{args.sig}-SR{args.tf}-VR{args.tf}_area')
     for fname in ['card.txt']:
-        cards_dir = Path(f'{args.sig}_fits/NMSSM-XHY-{args.sig}-SR{args.tf}-VR{args.tf}_area')
         if not os.path.isfile(f'{cards_dir}/{fname}'):
             raise FileNotFoundError(f'ERROR: File ${cards_dir}/{fname} required for this script not found. Generate it first with the command:\n\t./scripts/run_blinded.sh --sig {args.sig} --tf {args.tf} -w')
-
-    main(args)
+    # Check if the AsymptoticLimits file has already been made. For now, don't remake it 
+    if not os.path.isfile(f'{cards_dir}/higgsCombine.AsymptoticLimits.mH125.{args.sig}.{args.seed}.root'):
+        main(args)
+    else:
+        raise ValueError(f'Skipping signal ${args.sig} - AsymptoticLimits file already exists...')
