@@ -118,7 +118,7 @@ python condor/submit_limits.py --sig 4000-2000 --tf 1x0 --seed 42 --tol 0.1 --st
     * `python scripts/2Dlims.py` - generates 2D limits (scatter and log interp) for all signal mass points
     * `python scripts/2Dlims_onlyRelevantSignals.py` - generates 2D limits (scatter and log interp) for all *relevant* signals, i.e. those included in the fit ($m_X \geq 800$ and $m_Y \geq 300$)
     * `python scripts/column_limit_plots.py` - generates a 4x4 grid of 1D limits as a function of $m_Y$ for all considered $m_X$ 
-
+    * `python scripts/FullyMerged_SemiMerged_lims.py` - generates 2D limits for the combination (Raghav's boosted and my semi-boosted analysis)
 
 
 ## Step 4: Run `FitDiagnostics` in VR
