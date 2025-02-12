@@ -4,6 +4,7 @@
 *_fits/NMSSM-XHY-*_area/plots_fit_*
 *_fits/BACKUP*
 *_fits/NMSSM-XHY-*_area/outs
+*_fits/
 *.txt
 condor/bias
 condor/limits
@@ -12,3 +13,7 @@ fits_of_VR_only/
 plots/
 *.root
 sigs_missing.json
+preapproval/*.pdf
+preapproval/*.png
+preapproval/*.root
+preapproval/condor
