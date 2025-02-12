@@ -11,3 +11,10 @@ All requested tests will be shown for the VR with an (1800,1200) GeV signal samp
 1. `./FitDiagnostics.sh` - runs FitDiagnostics and plots B-only and S+B nuisances in VR
 2. `python submit_dNLL.py` - submits MultiDimFit jobs for all parameters, plots 1D scans of NLL as function of that parameter, and returns output products on condor.
     * can also be run locally via `./DeltaNLL.sh`, but not recommended b/c very slow
+
+## dNLL scan as function of `r` in the Asimov SR
+
+We want to show that dNLL as a function of `r` is healthy in the Asimov SR. To do this we will take the post-fit parameters from the b-only fit of the VR (contained in the `FitDiagnostics` output) and use them as input to the dNLL scan in the Asimov SR. 
+
+To do this, run `python dNLL_r_AsimovSR.py`
+
