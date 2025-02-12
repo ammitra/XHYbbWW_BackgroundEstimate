@@ -23,15 +23,26 @@ maskblindedargs="mask_SR_fail_LOW=0,mask_SR_fail_SIG=0,mask_SR_fail_HIGH=0,mask_
 setparamsunblinded="var{Background_VR.*}=0,rgx{Background_VR.*}=0"
 freezeparamsunblinded="var{Background_VR.*},rgx{Background_VR.*}"
 
-# fit options
+# fit options (no value set on signal expectation)
 rMin=-1
 rMax=1
-
-combine_command = f'combine -M MultiDimFit --algo grid -P r workspace.root -n ".AsimovSR.r" -m 120 -t -1 --rMin {rMin} --rMax {rMax} --setParameterRanges r={rMin},{rMax} --points 20 --floatOtherPOIs 1 --setParameters {maskblindedargs},{setparamsunblinded},{postfit_params} --freezeParameters {freezeparamsunblinded} --cminDefaultMinimizerStrategy 2 --cminDefaultMinimizerTolerance 0.1 --X-rtd MINIMIZER_MaxCalls=400000'
+combine_command = f'combine -M MultiDimFit --algo grid -P r workspace.root -n ".AsimovSR.r" -m 120 -t -1 --rMin {rMin} --rMax {rMax} --setParameterRanges r={rMin},{rMax} --points 100 --floatOtherPOIs 1 --setParameters {maskblindedargs},{setparamsunblinded},{postfit_params} --freezeParameters {freezeparamsunblinded} --cminDefaultMinimizerStrategy 2 --cminDefaultMinimizerTolerance 0.1 --X-rtd MINIMIZER_MaxCalls=400000'
 
 execute_cmd(combine_command)
+
+# Now use r=1 for the generated asimov toy
+rMin=0
+rMax=2
+combine_command = f'combine -M MultiDimFit --algo grid -P r workspace.root -n ".AsimovSR.r1" -m 120 -t -1 --expectSignal=1 --rMin {rMin} --rMax {rMax} --setParameterRanges r={rMin},{rMax} --points 100 --floatOtherPOIs 1 --setParameters {maskblindedargs},{setparamsunblinded},{postfit_params} --freezeParameters {freezeparamsunblinded} --cminDefaultMinimizerStrategy 2 --cminDefaultMinimizerTolerance 0.1 --X-rtd MINIMIZER_MaxCalls=400000'
+
+execute_cmd(combine_command)
+
 
 ymax = 8
 print('Plotting dNLL(r) for Asimov SR')
 plot_command = f'plot1DScan.py "higgsCombine.AsimovSR.r.MultiDimFit.mH120.root" -o dNLL_AsimovSR_r --POI r --y-max {ymax}'
+execute_cmd(plot_command)
+
+# now plot for r=1
+plot_command = f'plot1DScan.py "higgsCombine.AsimovSR.r1.MultiDimFit.mH120.root" -o dNLL_AsimovSR_r1 --POI r --y-max {ymax}'
 execute_cmd(plot_command)
