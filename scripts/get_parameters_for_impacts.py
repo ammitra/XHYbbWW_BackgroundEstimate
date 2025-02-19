@@ -28,6 +28,7 @@ def getParameters():
             or p == 'MH'
             or p == 'MHWW'
             or '_bin_' in p
+            or 'Trigger' in p
         ):
             ret_ps.append(p)
 

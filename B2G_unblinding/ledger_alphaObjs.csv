@@ -1,0 +1,17 @@
+,process,region,obj,norm,process_type,color,combine_idx,title
+0,Background_VR_fail,VR_fail,,,BKG,yellow,,QCD
+1,Background_SR_fail,SR_fail,,,BKG,yellow,,QCD
+2,Background_VR_pass_0x0,VR_pass,,,BKG,yellow,,QCD
+3,Background_SR_pass_0x0,SR_pass,,,BKG,yellow,,QCD
+4,Background_VR_pass_1x0,VR_pass,,,BKG,yellow,,QCD
+5,Background_SR_pass_1x0,SR_pass,,,BKG,yellow,,QCD
+6,Background_VR_pass_0x1,VR_pass,,,BKG,yellow,,QCD
+7,Background_SR_pass_0x1,SR_pass,,,BKG,yellow,,QCD
+8,Background_VR_pass_1x1,VR_pass,,,BKG,yellow,,QCD
+9,Background_SR_pass_1x1,SR_pass,,,BKG,yellow,,QCD
+10,Background_VR_pass_2x1,VR_pass,,,BKG,yellow,,QCD
+11,Background_SR_pass_2x1,SR_pass,,,BKG,yellow,,QCD
+12,Background_VR_pass_2x2,VR_pass,,,BKG,yellow,,QCD
+13,Background_SR_pass_2x2,SR_pass,,,BKG,yellow,,QCD
+14,Background_VR_pass_3x2,VR_pass,,,BKG,yellow,,QCD
+15,Background_SR_pass_3x2,SR_pass,,,BKG,yellow,,QCD

@@ -13,6 +13,10 @@ import ROOT
 import subprocess
 import pandas as pd
 
+from argparse import ArgumentParser
+parser = ArgumentParser()
+parser.add_argument('--unblinded', dest='unblinded', action='store_true')
+
 plt.style.use(hep.style.CMS)
 hep.style.use("CMS")
 formatter = mticker.ScalarFormatter(useMathText=True)
@@ -27,7 +31,11 @@ def mxmy(sample):
 # 0-4 are m2,m1,exp,p1,p2 sigma limits, 5 is observed
 limits = {0: [], 1: [], 2: [], 3: [], 4: []}
 
-files = glob.glob('*_fits/NMSSM*/higgsCombine.AsymptoticLimits.*')
+if args.unblinded:
+    files = glob.glob('*_fits/Unblinded_0x0/higgsCombine.AsymptoticLimits.*')
+    limits[5] = []
+else:
+    files = glob.glob('*_fits/NMSSM*/higgsCombine.AsymptoticLimits.*')
 
 for sample in files:
     mx, my = mxmy(sample)
@@ -38,7 +46,8 @@ for sample in files:
     f = ROOT.TFile.Open(sample,'READ')
     limTree = f.Get('limit')
     if not limTree.GetEntry(2): continue # skip if no med exp limit 
-    for i in range(5): # skip observed for now
+    r = 6 if args.unblinded else 5
+    for i in range(r): # skip observed for now
         # The input normalization is all in picobarns (1pb = 1000fb)
         # So we multiply all limits by the input cross section in fb
         limTree.GetEntry(i)
@@ -61,7 +70,7 @@ def scatter2d(arr, title, name):
         arr[:, 1],
         s=150,
         c=arr[:, 2],
-        cmap="turbo",
+        cmap="viridis",
         norm=matplotlib.colors.LogNorm(vmin=0.01, vmax=100),
     )
     plt.xlabel(r"$m_{X}$ (GeV)")
@@ -73,7 +82,7 @@ def scatter2d(arr, title, name):
 def colormesh(xx, yy, lims, label, name):
     fig, ax = plt.subplots(figsize=(12, 8))
     _ = plt.pcolormesh(
-        xx, yy, lims, norm=matplotlib.colors.LogNorm(vmin=0.05, vmax=1e4), cmap="turbo"
+        xx, yy, lims, norm=matplotlib.colors.LogNorm(vmin=0.05, vmax=1e4), cmap="viridis"
     )
     # plt.title(title)
     plt.xlabel(r"$m_{X}$ (GeV)")
@@ -102,7 +111,8 @@ for key, grid in grids.items():
     elif key == 2: label = '50.0'
     elif key == 3: label = '84.0'
     elif key == 4: label = '97.5'
-    t = '%s expected exclusion limits (fb)'%('Median' if label=='50.0' else label+'%')
+    elif key == 5: label = 'Observed'
+    t = '95% CL %s expected upper limits (fb)'%('Median' if label=='50.0' else label+'%')
     colormesh(xx, yy, grid, t, "plots/limit2D_interp_{}_zoomed.pdf".format(label))
 
 for key in range(5):
@@ -111,6 +121,7 @@ for key in range(5):
     elif key == 2: label = '50.0'
     elif key == 3: label = '84.0'
     elif key == 4: label = '97.5'
+    elif key == 5: label = 'Observed'
     val = limits[key]
-    t = '%s expected exclusion limits (fb)'%('Median' if label=='50.0' else label+'%')
+    t = '95% CL %s expected upper limits (fb)'%('Median' if label=='50.0' else label+'%')
     scatter2d(val, t, "plots/limit2D_scatter_{}_zoomed.pdf".format(label))

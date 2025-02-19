@@ -1,0 +1,833 @@
+{
+  "BINNING": {
+    "default": {
+      "X": {
+        "BINS": [
+          800,
+          900,
+          1000,
+          1100,
+          1200,
+          1300,
+          1400,
+          1600,
+          2000,
+          3000,
+          4500
+        ],
+        "NAME": "M_HWW",
+        "SIGEND": 1400,
+        "SIGSTART": 1100,
+        "TITLE": "m_{X}"
+      },
+      "Y": {
+        "BINS": [
+          300,
+          400,
+          500,
+          600,
+          700,
+          800,
+          900,
+          1000,
+          1500,
+          2000,
+          3000,
+          4500
+        ],
+        "NAME": "M_WW",
+        "SLICES": [
+          300,
+          500,
+          800,
+          4500
+        ],
+        "TITLE": "M_{Y}"
+      }
+    }
+  },
+  "GLOBAL": {
+    "FILE": "XHYbbWWselection_$process.root",
+    "FILE_DOWN": "XHYbbWWselection_$process_$syst_down.root",
+    "FILE_UP": "XHYbbWWselection_$process_$syst_up.root",
+    "HIST": "MXvsMY_$region__nominal",
+    "HIST_DOWN": "MXvsMY_$region__$syst_down",
+    "HIST_UP": "MXvsMY_$region__$syst_up",
+    "NMSSM-XHY-XMASS-YMASS": "NMSSM-XHY-1800-1200",
+    "SIGNAME": [
+      "NMSSM-XHY-1800-1200"
+    ],
+    "path": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection"
+  },
+  "NAME": "XHY_CR",
+  "OPTIONS": {
+    "blindedFit": [],
+    "blindedPlots": [],
+    "plotEvtsPerUnit": true,
+    "plotPrefitSigInFitB": true,
+    "plotTemplateComparisons": false,
+    "plotTitles": false,
+    "plotUncerts": true,
+    "year": 2
+  },
+  "PROCESSES": {
+    "SIGNAME_16": {
+      "COLOR": "black",
+      "LOC": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__nominal",
+      "NAME": "SIGNAME_16",
+      "SCALE": 1.0,
+      "SYSTEMATICS": [
+        "lumi_13TeV_2016",
+        "CMS_pileup_2016",
+        "CMS_res_j_2016",
+        "CMS_scale_j_2016",
+        "CMS_scale_jm_2016",
+        "CMS_res_jm_2016",
+        "lumi_correlated",
+        "CMS_l1_ecal_prefiring_2016",
+        "CMS_bbww_TriggerWeight_2016",
+        "CMS_bbWW_PNetHbb_tag",
+        "CMS_bbWW_PNetWqq_tag"
+      ],
+      "TITLE": "NMSSM",
+      "TYPE": "SIGNAL",
+      "VARIATION": "nominal"
+    },
+    "SIGNAME_16APV": {
+      "COLOR": "black",
+      "LOC": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__nominal",
+      "NAME": "SIGNAME_16APV",
+      "SCALE": 1.0,
+      "SYSTEMATICS": [
+        "lumi_13TeV_2016",
+        "CMS_pileup_2016",
+        "CMS_res_j_2016",
+        "CMS_scale_j_2016",
+        "CMS_scale_jm_2016",
+        "CMS_res_jm_2016",
+        "lumi_correlated",
+        "CMS_l1_ecal_prefiring_2016",
+        "CMS_bbww_TriggerWeight_2016",
+        "CMS_bbWW_PNetHbb_tag",
+        "CMS_bbWW_PNetWqq_tag"
+      ],
+      "TITLE": "NMSSM",
+      "TYPE": "SIGNAL",
+      "VARIATION": "nominal"
+    },
+    "SIGNAME_17": {
+      "COLOR": "black",
+      "LOC": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__nominal",
+      "NAME": "SIGNAME_17",
+      "SCALE": 1.0,
+      "SYSTEMATICS": [
+        "lumi_13TeV_2017",
+        "CMS_pileup_2017",
+        "CMS_res_j_2017",
+        "CMS_scale_j_2017",
+        "CMS_scale_jm_2017",
+        "CMS_res_jm_2017",
+        "lumi_correlated",
+        "CMS_l1_ecal_prefiring_2017",
+        "CMS_bbww_TriggerWeight_2017",
+        "CMS_bbWW_PNetHbb_tag",
+        "CMS_bbWW_PNetWqq_tag"
+      ],
+      "TITLE": "NMSSM",
+      "TYPE": "SIGNAL",
+      "VARIATION": "nominal"
+    },
+    "SIGNAME_18": {
+      "COLOR": "black",
+      "LOC": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__nominal",
+      "NAME": "SIGNAME_18",
+      "SCALE": 1.0,
+      "SYSTEMATICS": [
+        "lumi_13TeV_2018",
+        "CMS_pileup_2018",
+        "CMS_res_j_2018",
+        "CMS_scale_j_2018",
+        "CMS_scale_jm_2018",
+        "CMS_res_jm_2018",
+        "lumi_correlated",
+        "CMS_bbww_TriggerWeight_2018",
+        "CMS_bbWW_PNetHbb_tag",
+        "CMS_bbWW_PNetWqq_tag"
+      ],
+      "TITLE": "NMSSM",
+      "TYPE": "SIGNAL",
+      "VARIATION": "nominal"
+    },
+    "ST_16": {
+      "COLOR": "orange",
+      "LOC": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__nominal",
+      "NAME": "ST_16",
+      "SCALE": 1.0,
+      "SYSTEMATICS": [
+        "lumi_13TeV_2016",
+        "CMS_pileup_2016",
+        "CMS_res_j_2016",
+        "CMS_scale_j_2016",
+        "lumi_correlated",
+        "CMS_scale_jm_2016",
+        "CMS_res_jm_2016",
+        "CMS_l1_ecal_prefiring_2016",
+        "CMS_bbww_TriggerWeight_2016",
+        "ps_isr",
+        "ps_fsr",
+        "QCDscale_ST"
+      ],
+      "TITLE": "Single top",
+      "TYPE": "BKG",
+      "VARIATION": "nominal"
+    },
+    "ST_16APV": {
+      "COLOR": "orange",
+      "LOC": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__nominal",
+      "NAME": "ST_16APV",
+      "SCALE": 1.0,
+      "SYSTEMATICS": [
+        "lumi_13TeV_2016",
+        "CMS_pileup_2016",
+        "CMS_res_j_2016",
+        "CMS_scale_j_2016",
+        "lumi_correlated",
+        "CMS_scale_jm_2016",
+        "CMS_res_jm_2016",
+        "CMS_l1_ecal_prefiring_2016",
+        "CMS_bbww_TriggerWeight_2016",
+        "ps_isr",
+        "ps_fsr",
+        "QCDscale_ST"
+      ],
+      "TITLE": "Single top",
+      "TYPE": "BKG",
+      "VARIATION": "nominal"
+    },
+    "ST_17": {
+      "COLOR": "orange",
+      "LOC": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__nominal",
+      "NAME": "ST_17",
+      "SCALE": 1.0,
+      "SYSTEMATICS": [
+        "lumi_13TeV_2017",
+        "CMS_pileup_2017",
+        "CMS_res_j_2017",
+        "CMS_scale_j_2017",
+        "lumi_correlated",
+        "CMS_scale_jm_2017",
+        "CMS_res_jm_2017",
+        "CMS_l1_ecal_prefiring_2017",
+        "CMS_bbww_TriggerWeight_2017",
+        "ps_isr",
+        "ps_fsr",
+        "QCDscale_ST"
+      ],
+      "TITLE": "Single top",
+      "TYPE": "BKG",
+      "VARIATION": "nominal"
+    },
+    "ST_18": {
+      "COLOR": "orange",
+      "LOC": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__nominal",
+      "NAME": "ST_18",
+      "SCALE": 1.0,
+      "SYSTEMATICS": [
+        "lumi_13TeV_2018",
+        "CMS_pileup_2018",
+        "CMS_res_j_2018",
+        "CMS_scale_j_2018",
+        "lumi_correlated",
+        "CMS_scale_jm_2018",
+        "CMS_res_jm_2018",
+        "CMS_bbww_TriggerWeight_2018",
+        "ps_isr",
+        "ps_fsr",
+        "QCDscale_ST"
+      ],
+      "TITLE": "Single top",
+      "TYPE": "BKG",
+      "VARIATION": "nominal"
+    },
+    "WJets_16": {
+      "COLOR": "green",
+      "LOC": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__nominal",
+      "NAME": "WJets_16",
+      "SCALE": 1.0,
+      "SYSTEMATICS": [
+        "lumi_13TeV_2016",
+        "CMS_pileup_2016",
+        "CMS_res_j_2016",
+        "CMS_scale_j_2016",
+        "lumi_correlated",
+        "CMS_scale_jm_2016",
+        "CMS_res_jm_2016",
+        "CMS_l1_ecal_prefiring_2016",
+        "CMS_bbww_TriggerWeight_2016",
+        "ps_isr",
+        "ps_fsr",
+        "QCDscale_V"
+      ],
+      "TITLE": "W+ jets",
+      "TYPE": "BKG",
+      "VARIATION": "nominal"
+    },
+    "WJets_16APV": {
+      "COLOR": "green",
+      "LOC": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__nominal",
+      "NAME": "WJets_16APV",
+      "SCALE": 1.0,
+      "SYSTEMATICS": [
+        "lumi_13TeV_2016",
+        "CMS_pileup_2016",
+        "CMS_res_j_2016",
+        "CMS_scale_j_2016",
+        "lumi_correlated",
+        "CMS_scale_jm_2016",
+        "CMS_res_jm_2016",
+        "CMS_l1_ecal_prefiring_2016",
+        "CMS_bbww_TriggerWeight_2016",
+        "ps_isr",
+        "ps_fsr",
+        "QCDscale_V"
+      ],
+      "TITLE": "W+ jets",
+      "TYPE": "BKG",
+      "VARIATION": "nominal"
+    },
+    "WJets_17": {
+      "COLOR": "green",
+      "LOC": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__nominal",
+      "NAME": "WJets_17",
+      "SCALE": 1.0,
+      "SYSTEMATICS": [
+        "lumi_13TeV_2017",
+        "CMS_pileup_2017",
+        "CMS_res_j_2017",
+        "CMS_scale_j_2017",
+        "lumi_correlated",
+        "CMS_scale_jm_2017",
+        "CMS_res_jm_2017",
+        "CMS_l1_ecal_prefiring_2017",
+        "CMS_bbww_TriggerWeight_2017",
+        "ps_isr",
+        "ps_fsr",
+        "QCDscale_V"
+      ],
+      "TITLE": "W+ jets",
+      "TYPE": "BKG",
+      "VARIATION": "nominal"
+    },
+    "WJets_18": {
+      "COLOR": "green",
+      "LOC": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__nominal",
+      "NAME": "WJets_18",
+      "SCALE": 1.0,
+      "SYSTEMATICS": [
+        "lumi_13TeV_2018",
+        "CMS_pileup_2018",
+        "CMS_res_j_2018",
+        "CMS_scale_j_2018",
+        "lumi_correlated",
+        "CMS_scale_jm_2018",
+        "CMS_res_jm_2018",
+        "CMS_bbww_TriggerWeight_2018",
+        "ps_isr",
+        "ps_fsr",
+        "QCDscale_V"
+      ],
+      "TITLE": "W+ jets",
+      "TYPE": "BKG",
+      "VARIATION": "nominal"
+    },
+    "ZJets_16": {
+      "COLOR": "blue",
+      "LOC": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__nominal",
+      "NAME": "ZJets_16",
+      "SCALE": 1.0,
+      "SYSTEMATICS": [
+        "lumi_13TeV_2016",
+        "CMS_pileup_2016",
+        "CMS_res_j_2016",
+        "CMS_scale_j_2016",
+        "lumi_correlated",
+        "CMS_scale_jm_2016",
+        "CMS_res_jm_2016",
+        "CMS_l1_ecal_prefiring_2016",
+        "CMS_bbww_TriggerWeight_2016",
+        "ps_isr",
+        "ps_fsr",
+        "QCDscale_V"
+      ],
+      "TITLE": "Z+ jets",
+      "TYPE": "BKG",
+      "VARIATION": "nominal"
+    },
+    "ZJets_16APV": {
+      "COLOR": "blue",
+      "LOC": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__nominal",
+      "NAME": "ZJets_16APV",
+      "SCALE": 1.0,
+      "SYSTEMATICS": [
+        "lumi_13TeV_2016",
+        "CMS_pileup_2016",
+        "CMS_res_j_2016",
+        "CMS_scale_j_2016",
+        "lumi_correlated",
+        "CMS_scale_jm_2016",
+        "CMS_res_jm_2016",
+        "CMS_l1_ecal_prefiring_2016",
+        "CMS_bbww_TriggerWeight_2016",
+        "ps_isr",
+        "ps_fsr",
+        "QCDscale_V"
+      ],
+      "TITLE": "Z+ jets",
+      "TYPE": "BKG",
+      "VARIATION": "nominal"
+    },
+    "ZJets_17": {
+      "COLOR": "blue",
+      "LOC": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__nominal",
+      "NAME": "ZJets_17",
+      "SCALE": 1.0,
+      "SYSTEMATICS": [
+        "lumi_13TeV_2017",
+        "CMS_pileup_2017",
+        "CMS_res_j_2017",
+        "CMS_scale_j_2017",
+        "lumi_correlated",
+        "CMS_scale_jm_2017",
+        "CMS_res_jm_2017",
+        "CMS_l1_ecal_prefiring_2017",
+        "CMS_bbww_TriggerWeight_2017",
+        "ps_isr",
+        "ps_fsr",
+        "QCDscale_V"
+      ],
+      "TITLE": "Z+ jets",
+      "TYPE": "BKG",
+      "VARIATION": "nominal"
+    },
+    "ZJets_18": {
+      "COLOR": "blue",
+      "LOC": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__nominal",
+      "NAME": "ZJets_18",
+      "SCALE": 1.0,
+      "SYSTEMATICS": [
+        "lumi_13TeV_2018",
+        "CMS_pileup_2018",
+        "CMS_res_j_2018",
+        "CMS_scale_j_2018",
+        "lumi_correlated",
+        "CMS_scale_jm_2018",
+        "CMS_res_jm_2018",
+        "CMS_bbww_TriggerWeight_2018",
+        "ps_isr",
+        "ps_fsr",
+        "QCDscale_V"
+      ],
+      "TITLE": "Z+ jets",
+      "TYPE": "BKG",
+      "VARIATION": "nominal"
+    },
+    "data_obs": {
+      "ALIAS": "Data_Run2",
+      "COLOR": "black",
+      "LOC": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__nominal",
+      "NAME": "data_obs",
+      "SCALE": 1.0,
+      "SYSTEMATICS": [],
+      "TITLE": "Data",
+      "TYPE": "DATA",
+      "VARIATION": "nominal"
+    },
+    "ttbar_16": {
+      "COLOR": "red",
+      "LOC": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__nominal",
+      "NAME": "ttbar_16",
+      "SCALE": 1.0,
+      "SYSTEMATICS": [
+        "lumi_13TeV_2016",
+        "CMS_pileup_2016",
+        "CMS_res_j_2016",
+        "CMS_scale_j_2016",
+        "lumi_correlated",
+        "CMS_scale_jm_2016",
+        "CMS_res_jm_2016",
+        "CMS_l1_ecal_prefiring_2016",
+        "CMS_bbww_TriggerWeight_2016",
+        "CMS_bbWW_PNetHbb_mistag",
+        "CMS_bbWW_PNetWqq_mistag",
+        "ps_isr",
+        "ps_fsr",
+        "QCDscale_ttbar"
+      ],
+      "TITLE": "t#bar{t}",
+      "TYPE": "BKG",
+      "VARIATION": "nominal"
+    },
+    "ttbar_16APV": {
+      "COLOR": "red",
+      "LOC": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__nominal",
+      "NAME": "ttbar_16APV",
+      "SCALE": 1.0,
+      "SYSTEMATICS": [
+        "lumi_13TeV_2016",
+        "CMS_pileup_2016",
+        "CMS_res_j_2016",
+        "CMS_scale_j_2016",
+        "lumi_correlated",
+        "CMS_scale_jm_2016",
+        "CMS_res_jm_2016",
+        "CMS_l1_ecal_prefiring_2016",
+        "CMS_bbww_TriggerWeight_2016",
+        "CMS_bbWW_PNetHbb_mistag",
+        "CMS_bbWW_PNetWqq_mistag",
+        "ps_isr",
+        "ps_fsr",
+        "QCDscale_ttbar"
+      ],
+      "TITLE": "t#bar{t}",
+      "TYPE": "BKG",
+      "VARIATION": "nominal"
+    },
+    "ttbar_17": {
+      "COLOR": "red",
+      "LOC": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__nominal",
+      "NAME": "ttbar_17",
+      "SCALE": 1.0,
+      "SYSTEMATICS": [
+        "lumi_13TeV_2017",
+        "CMS_pileup_2017",
+        "CMS_res_j_2017",
+        "CMS_scale_j_2017",
+        "lumi_correlated",
+        "CMS_scale_jm_2017",
+        "CMS_res_jm_2017",
+        "CMS_l1_ecal_prefiring_2017",
+        "CMS_bbww_TriggerWeight_2017",
+        "CMS_bbWW_PNetHbb_mistag",
+        "CMS_bbWW_PNetWqq_mistag",
+        "ps_isr",
+        "ps_fsr",
+        "QCDscale_ttbar"
+      ],
+      "TITLE": "t#bar{t}",
+      "TYPE": "BKG",
+      "VARIATION": "nominal"
+    },
+    "ttbar_18": {
+      "COLOR": "red",
+      "LOC": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__nominal",
+      "NAME": "ttbar_18",
+      "SCALE": 1.0,
+      "SYSTEMATICS": [
+        "lumi_13TeV_2018",
+        "CMS_pileup_2018",
+        "CMS_res_j_2018",
+        "CMS_scale_j_2018",
+        "lumi_correlated",
+        "CMS_scale_jm_2018",
+        "CMS_res_jm_2018",
+        "CMS_bbww_TriggerWeight_2018",
+        "CMS_bbWW_PNetHbb_mistag",
+        "CMS_bbWW_PNetWqq_mistag",
+        "ps_isr",
+        "ps_fsr",
+        "QCDscale_ttbar"
+      ],
+      "TITLE": "t#bar{t}",
+      "TYPE": "BKG",
+      "VARIATION": "nominal"
+    }
+  },
+  "REGIONS": {
+    "SR_fail": {
+      "BINNING": "default",
+      "PROCESSES": [
+        "data_obs",
+        "SIGNAME_16APV",
+        "SIGNAME_16",
+        "SIGNAME_17",
+        "SIGNAME_18",
+        "ttbar_16APV",
+        "ttbar_16",
+        "ttbar_17",
+        "ttbar_18",
+        "ZJets_16APV",
+        "ZJets_16",
+        "ZJets_17",
+        "ZJets_18",
+        "WJets_16APV",
+        "WJets_16",
+        "WJets_17",
+        "WJets_18"
+      ]
+    },
+    "SR_pass": {
+      "BINNING": "default",
+      "PROCESSES": [
+        "data_obs",
+        "SIGNAME_16APV",
+        "SIGNAME_16",
+        "SIGNAME_17",
+        "SIGNAME_18",
+        "ttbar_16APV",
+        "ttbar_16",
+        "ttbar_17",
+        "ttbar_18",
+        "ZJets_16APV",
+        "ZJets_16",
+        "ZJets_17",
+        "ZJets_18",
+        "WJets_16APV",
+        "WJets_16",
+        "WJets_17",
+        "WJets_18"
+      ]
+    },
+    "VR_fail": {
+      "BINNING": "default",
+      "PROCESSES": [
+        "data_obs",
+        "SIGNAME_16APV",
+        "SIGNAME_16",
+        "SIGNAME_17",
+        "SIGNAME_18",
+        "ttbar_16APV",
+        "ttbar_16",
+        "ttbar_17",
+        "ttbar_18",
+        "ZJets_16APV",
+        "ZJets_16",
+        "ZJets_17",
+        "ZJets_18",
+        "WJets_16APV",
+        "WJets_16",
+        "WJets_17",
+        "WJets_18"
+      ]
+    },
+    "VR_pass": {
+      "BINNING": "default",
+      "PROCESSES": [
+        "data_obs",
+        "SIGNAME_16APV",
+        "SIGNAME_16",
+        "SIGNAME_17",
+        "SIGNAME_18",
+        "ttbar_16APV",
+        "ttbar_16",
+        "ttbar_17",
+        "ttbar_18",
+        "ZJets_16APV",
+        "ZJets_16",
+        "ZJets_17",
+        "ZJets_18",
+        "WJets_16APV",
+        "WJets_16",
+        "WJets_17",
+        "WJets_18"
+      ]
+    }
+  },
+  "SYSTEMATICS": {
+    "CMS_bbWW_PNetHbb_mistag": {
+      "ALIAS": "PNetMD_Hbb_mistag",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_down",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_up"
+    },
+    "CMS_bbWW_PNetHbb_tag": {
+      "ALIAS": "PNetMD_Hbb_tag",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_down",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_up"
+    },
+    "CMS_bbWW_PNetWqq_mistag": {
+      "ALIAS": "PNet_W_mistag",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_down",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_up"
+    },
+    "CMS_bbWW_PNetWqq_tag": {
+      "ALIAS": "PNet_W_tag",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_down",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_up"
+    },
+    "CMS_bbww_TriggerWeight_2016": {
+      "ALIAS": "TriggerEff16",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_down",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_up"
+    },
+    "CMS_bbww_TriggerWeight_2017": {
+      "ALIAS": "TriggerEff17",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_down",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_up"
+    },
+    "CMS_bbww_TriggerWeight_2018": {
+      "ALIAS": "TriggerEff18",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_down",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_up"
+    },
+    "CMS_l1_ecal_prefiring_2016": {
+      "ALIAS": "L1PreFireWeight",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_down",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_up"
+    },
+    "CMS_l1_ecal_prefiring_2017": {
+      "ALIAS": "L1PreFireWeight",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_down",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_up"
+    },
+    "CMS_pileup_2016": {
+      "ALIAS": "Pileup",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_down",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_up"
+    },
+    "CMS_pileup_2017": {
+      "ALIAS": "Pileup",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_down",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_up"
+    },
+    "CMS_pileup_2018": {
+      "ALIAS": "Pileup",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_down",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_up"
+    },
+    "CMS_res_j_2016": {
+      "ALIAS": "JER",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_down.root:MXvsMY_$region__nominal",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_up.root:MXvsMY_$region__nominal"
+    },
+    "CMS_res_j_2017": {
+      "ALIAS": "JER",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_down.root:MXvsMY_$region__nominal",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_up.root:MXvsMY_$region__nominal"
+    },
+    "CMS_res_j_2018": {
+      "ALIAS": "JER",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_down.root:MXvsMY_$region__nominal",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_up.root:MXvsMY_$region__nominal"
+    },
+    "CMS_res_jm_2016": {
+      "ALIAS": "JMR",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_down.root:MXvsMY_$region__nominal",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_up.root:MXvsMY_$region__nominal"
+    },
+    "CMS_res_jm_2017": {
+      "ALIAS": "JMR",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_down.root:MXvsMY_$region__nominal",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_up.root:MXvsMY_$region__nominal"
+    },
+    "CMS_res_jm_2018": {
+      "ALIAS": "JMR",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_down.root:MXvsMY_$region__nominal",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_up.root:MXvsMY_$region__nominal"
+    },
+    "CMS_scale_j_2016": {
+      "ALIAS": "JES",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_down.root:MXvsMY_$region__nominal",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_up.root:MXvsMY_$region__nominal"
+    },
+    "CMS_scale_j_2017": {
+      "ALIAS": "JES",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_down.root:MXvsMY_$region__nominal",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_up.root:MXvsMY_$region__nominal"
+    },
+    "CMS_scale_j_2018": {
+      "ALIAS": "JES",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_down.root:MXvsMY_$region__nominal",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_up.root:MXvsMY_$region__nominal"
+    },
+    "CMS_scale_jm_2016": {
+      "ALIAS": "JMS",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_down.root:MXvsMY_$region__nominal",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_up.root:MXvsMY_$region__nominal"
+    },
+    "CMS_scale_jm_2017": {
+      "ALIAS": "JMS",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_down.root:MXvsMY_$region__nominal",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_up.root:MXvsMY_$region__nominal"
+    },
+    "CMS_scale_jm_2018": {
+      "ALIAS": "JMS",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_down.root:MXvsMY_$region__nominal",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process_$syst_up.root:MXvsMY_$region__nominal"
+    },
+    "QCDscale_ST": {
+      "ALIAS": "QCDscale_uncert",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_down",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_up"
+    },
+    "QCDscale_V": {
+      "ALIAS": "QCDscale_uncert",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_down",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_up"
+    },
+    "QCDscale_ttbar": {
+      "ALIAS": "QCDscale_uncert",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_down",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_up"
+    },
+    "lumi_13TeV_2016": {
+      "CODE": 0,
+      "VAL": 1.01
+    },
+    "lumi_13TeV_2017": {
+      "CODE": 0,
+      "VAL": 1.02
+    },
+    "lumi_13TeV_2018": {
+      "CODE": 0,
+      "VAL": 1.015
+    },
+    "lumi_correlated": {
+      "CODE": 0,
+      "VAL": 1.016
+    },
+    "pdf_shape": {
+      "ALIAS": "Pdfweight",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_down",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_up"
+    },
+    "ps_fsr": {
+      "ALIAS": "FSRunc",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_down",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_up"
+    },
+    "ps_isr": {
+      "ALIAS": "ISRunc",
+      "DOWN": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_down",
+      "SIGMA": 1.0,
+      "UP": "root://cmseos.fnal.gov//store/user/ammitra/XHYbbWW/selection/XHYbbWWselection_$process.root:MXvsMY_$region__$syst_up"
+    }
+  }
+}

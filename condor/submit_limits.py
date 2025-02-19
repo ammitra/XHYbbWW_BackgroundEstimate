@@ -32,7 +32,11 @@ def write_template(templ_file: str, out_file: Path, templ_args: dict, safe: bool
 def main(args):
     t2_local_prefix, t2_prefix, proxy, username, submitdir = setup()
     prefix = f"limits_seed_{args.seed}"
-    local_dir = Path(f"condor/limits/{args.sig}/{prefix}")
+    if args.unblind:
+        path = f"condor/limits/unblinded/{args.sig}/{prefix}"
+    else:
+        path = f"condor/limits/{args.sig}/{prefix}"
+    local_dir = Path(path)
 
     # make local directory for output
     logdir = local_dir / "logs"
@@ -42,7 +46,10 @@ def main(args):
     sh_templ = f"{submitdir}/submit_limits.templ.sh"
 
     # get the location of the cards and base.root
-    cards_dir     = Path(f'{args.sig}_fits/NMSSM-XHY-{args.sig}-SR{args.tf}-VR{args.tf}_area')
+    if args.unblind:
+        cards_dir = Path(f'{args.sig}_fits/Unblinded_{args.tf}')
+    else:
+        cards_dir = Path(f'{args.sig}_fits/NMSSM-XHY-{args.sig}-SR{args.tf}-VR{args.tf}_area')
     base_root_dir = Path(f'{args.sig}_fits')
 
     local_jdl = Path(f'{local_dir}/{prefix}.jdl')
@@ -55,7 +62,8 @@ def main(args):
         "cards_dir": cards_dir,
         "base_root_dir": base_root_dir,
         "signame": args.sig,
-        "seed": args.seed
+        "seed": args.seed,
+        "script": 'run_unblinded_condor' if args.unblind else 'run_blinded_condor'
     }
     write_template(jdl_templ, local_jdl, jdl_args)
 
@@ -69,7 +77,8 @@ def main(args):
         "sig": args.sig,
         "tf": args.tf, 
         "rMin": args.rMin,
-        "rMax": args.rMax
+        "rMax": args.rMax,
+        "script": 'run_unblinded_condor' if args.unblind else 'run_blinded_condor'
     }
     write_template(sh_templ, localsh, sh_args)
 
@@ -86,6 +95,7 @@ if __name__ == "__main__":
     # GET THE APPROPRIATE INPUT FILES
     parser.add_argument("--sig", help="signal name", type=str, required=True)
     parser.add_argument("--tf", default="1x0", help="QCD transfer function parameterization", type=str)
+    parser.add_argument('--unblind', dest='unblind', action='store_true', help='Run observed limits')
     # FIT ARGUMENTS 
     parser.add_argument("--seed", default=42, help="# condor jobs", type=int)
     parser.add_argument("--tol", default=0.1, help="minimizer tolerance", type=float)
@@ -95,10 +105,16 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # check if the required input files have been produced already. This script only needs a combined card
-    cards_dir = Path(f'{args.sig}_fits/NMSSM-XHY-{args.sig}-SR{args.tf}-VR{args.tf}_area')
+    if args.unblind:
+        path = f'{args.sig}_fits/Unblinded_{args.tf}'
+    else:
+        path = f'{args.sig}_fits/NMSSM-XHY-{args.sig}-SR{args.tf}-VR{args.tf}_area'
+    cards_dir = Path(path)
+
     for fname in ['card.txt']:
         if not os.path.isfile(f'{cards_dir}/{fname}'):
             raise FileNotFoundError(f'ERROR: File ${cards_dir}/{fname} required for this script not found. Generate it first with the command:\n\t./scripts/run_blinded.sh --sig {args.sig} --tf {args.tf} -w')
+
     # Check if the AsymptoticLimits file has already been made. For now, don't remake it 
     if not os.path.isfile(f'{cards_dir}/higgsCombine.AsymptoticLimits.mH125.{args.sig}.{args.seed}.root'):
         main(args)

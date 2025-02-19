@@ -185,6 +185,32 @@ python scripts/plot_gof.py --sig $sig --tf $tf --seed $seed
 **TODO:** Maybe write a condor script for gof submission. Though, we only need to do this once (since there is only one VR) and it doesn't take too long to run 500 toys locally. 
 
 
+## UNBLINDED LIMITS 
+
+It was determined that a `0x0` transfer function was best after unblinding (see `B2G_unblinding/README.md`).
+
+First run `source scripts/make_cards_unblinded.sh` to make all of the cards and unblinded workspaces. Then the limits can be calculated locally or on condor (recommended).
+
+To run unblinded limits locally:
+```
+source scripts/unblinded_limits.sh -l --tf 0x0 --sig $sig --rMax $rMax --strat $strat [--robustFit] --verbosity $verbosity
+```
+
+To run on condor:
+```
+python condor/submit_limits.py --sig $sig --tf 0x0 --seed 123456 --rMax $rMax --unblind
+```
+
+**NOTES:**
+
+* The condor submission script *only* needs the `card.txt` locally. You don't need to run `MultiDimFit` snapshot locally first
+* The output from condor will be sent to the current working directory. Make sure to move it to the appropriate workspace automatically by using the script:
+    * `python scripts/move_limits.py --tf $tf --unblinded`
+* After moving the condor outputs to their respective directories, run
+    * `python scripts/2Dlims.py --unblinded` - generates 2D limits (scatter and log interp) for all signal mass points
+    * `python scripts/2Dlims_onlyRelevantSignals.py --unblinded` - generates 2D limits (scatter and log interp) for all *relevant* signals, i.e. those included in the fit ($m_X \geq 800$ and $m_Y \geq 300$)
+
+
 ## Extra scripts 
 
 Located in the `scripts/` directory:

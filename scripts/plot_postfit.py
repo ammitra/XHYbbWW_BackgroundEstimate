@@ -177,7 +177,7 @@ def getProjn(h,proj):
     hprojn.SetDirectory(0)
     return hprojn
 
-f = ROOT.TFile.Open('1800-1200_fits/NMSSM-XHY-1800-1200-SR1x0-VR1x0_area/plots_fit_b/all_plots.root','READ')
+f = ROOT.TFile.Open('1800-1200_fits/BACKUP-2DAlphabet/NMSSM-XHY-1800-1200-SR1x0-VR1x0_area/plots_fit_b/all_plots.root','READ')
 
 prefit_hists  = [i.GetName() for i in f.GetListOfKeys() if ('prefit_2D' in i.GetName())]
 postfit_hists = [i.GetName() for i in f.GetListOfKeys() if ('postfit_2D' in i.GetName())]

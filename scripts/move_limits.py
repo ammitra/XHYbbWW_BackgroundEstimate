@@ -13,7 +13,10 @@ def get(args):
     for f in g:
         signame = f.split('.')[3]
         print(f'Detected AsymptoticLimits file for signal {signame} - relocating...')
-        toDir = f'{signame}_fits/NMSSM-XHY-{signame}-SR{args.tf}-VR{args.tf}_area/'
+        if args.unblinded:
+            toDir = f'{signame}_fits/Unblinded_{args.tf}/'
+        else:
+            toDir = f'{signame}_fits/NMSSM-XHY-{signame}-SR{args.tf}-VR{args.tf}_area/'
         execute_cmd(f'mv {f} {toDir}')
 
 
@@ -22,5 +25,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     # GET THE APPROPRIATE INPUT FILES
     parser.add_argument("--tf", default="1x0", help="QCD transfer function parameterization", type=str)
+    parser.add_argument("--unblinded", action='store_true', dest='unblinded')
     args = parser.parse_args()
     get(args)

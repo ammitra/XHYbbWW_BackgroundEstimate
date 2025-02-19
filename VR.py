@@ -117,6 +117,11 @@ def make_card(SRorVR='', signal='', SRtf='', VRtf=''):
     subset = twoD.ledger.select(_select_signal, 'NMSSM-XHY-{}'.format(signal), SRtf, VRtf)
     twoD.MakeCard(subset, 'NMSSM-XHY-{}-SR{}-VR{}_area'.format(signal, SRtf, VRtf))
 
+def make_card_unblinded(SRorVR='', signal='', SRtf='', VRtf=''):
+    working_area = '{}fits'.format(SRorVR)
+    twoD = TwoDAlphabet(working_area, '{}/runConfig.json'.format(working_area), loadPrevious=True)
+    subset = twoD.ledger.select(_select_signal, 'NMSSM-XHY-{}'.format(signal), SRtf, VRtf)
+    twoD.MakeCard(subset, f'Unblinded_{SRtf}')
 
 def test_fit(SRorVR='', signal='', SRtf='', VRtf='', defMinStrat=0, extra='--robustHesse 1', rMin=-1, rMax=10, setParams={}, verbosity=2):
     working_area = '{}fits'.format(SRorVR)
@@ -342,6 +347,9 @@ if __name__ == "__main__":
     parser.add_argument('--makeCard', dest='makeCard',
                         action='store_true', 
                         help='If passed as argument, create Combine card for given SRtf, VRtf combo')
+    parser.add_argument('--makeCardUnblinded', dest='makeCardUnblinded',
+                        action='store_true', 
+                        help='If passed as argument, create Combine card for SRtf, unblinded')
     parser.add_argument('--fit', dest='fit',
                         action='store_true',
                         help='If passed as argument, fit with the given TFs')
@@ -407,6 +415,8 @@ if __name__ == "__main__":
         test_make(args.workspace, fr=fr, json=args.json)
     if args.makeCard:
         make_card(SRorVR=args.workspace, signal=args.sigmass, SRtf=args.SRtf, VRtf=args.VRtf)
+    if args.makeCardUnblinded:
+        make_card_unblinded(SRorVR=args.workspace, signal=args.sigmass, SRtf=args.SRtf, VRtf=args.VRtf)
     if args.fit:
         if (args.robustFit) and (args.robustHesse):
             raise ValueError('Cannot use both robustFit and robustHesse algorithms simultaneously')

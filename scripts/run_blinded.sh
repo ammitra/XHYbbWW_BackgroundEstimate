@@ -285,7 +285,7 @@ if [ $significance = 1 ]; then
         (set -x; combine -M Significance -d ${wsm_snapshot}.root -n "" --significance -m 125 --snapshotName MultiDimFit -v $verbosity \
         -t -1 --expectSignal=1 --saveWorkspace --saveToys --bypassFrequentistFit \
         "${unblindedparams},r=1" \
-        --floatParameters "${freezeparamsblinded},r" --toysFrequentist 2>&1) | tee outs/Significance.txt
+        --floatParameters "${freezeparamsblinded},r" --toysFrequentist) 2>&1 | tee outs/Significance.txt
     fi
     cd $cwd
 fi
@@ -304,10 +304,10 @@ if [ $dfit = 1 ]; then
         --setParameters "${maskunblindedargs},${setparamsblinded}" \
         --freezeParameters "${freezeparamsblinded}" --rMin "$rmin" --rMax "$rmax"\
         --cminDefaultMinimizerStrategy "$strat"  --cminDefaultMinimizerTolerance "$tol" --X-rtd MINIMIZER_MaxCalls=400000 \
-        -n Blinded --ignoreCovWarning -v $verbosity 2>&1) | tee outs/FitDiagnostics.txt
+        -n Blinded --ignoreCovWarning -v $verbosity) 2>&1 | tee outs/FitDiagnostics.txt
 
-        echo "Fit Shapes"
-        (set -x; PostFitShapesFromWorkspace --dataset "$dataset" -w ${wsm}.root --output FitShapes.root \
+        echo "2D Fit Shapes"
+        (set -x; PostFit2DShapesFromWorkspace --dataset "$dataset" -w ${wsm}.root --output FitShapes.root \
         -m 125 -f fitDiagnosticsBlinded.root:fit_b --postfit --print) 2>&1 | tee outs/FitShapes.txt
     fi
     cd $cwd

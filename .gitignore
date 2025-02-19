@@ -17,3 +17,13 @@ preapproval/*.pdf
 preapproval/*.png
 preapproval/*.root
 preapproval/condor
+B2G_unblinding/*.png
+B2G_unblinding/*.pdf
+B2G_unblinding/outs
+B2G_unblinding/postfit_distributions/*
+B2G_unblinding/Unblinded_*
+B2G_unblinding/*.txt
+B2G_unblinding/*.out
+B2G_unblinding/__pycache__/
+plots/backup*
+limits/backup_*
