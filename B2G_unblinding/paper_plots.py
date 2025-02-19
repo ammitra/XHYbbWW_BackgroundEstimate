@@ -26,8 +26,8 @@ stack_style = {
 
 hatch_style = {
     'facecolor': 'none',
-    'edgecolor': '#9c9ca1',
-    'alpha': 0.1,
+    'edgecolor': 'black',#'#9c9ca1',
+    'alpha': 1,
     'linewidth': 0,
     'hatch': '//',
 }
@@ -102,10 +102,10 @@ def merge_low_sig_high(hLow,hSig,hHigh,hName="temp"):
             h_res.SetBinError(i+n_x_sig+n_x_low,j,hHigh.GetBinError(i,j))
     return h_res
 
-def get_hists(input_file,region,processes):
+def get_hists(input_file,region,processes,prefit=False):
     histos_region_dict = {}
     for process in processes:
-        h2 = get2DPostfitPlot(input_file,process,region)
+        h2 = get2DPostfitPlot(input_file,process,region,prefit)
         histos_region_dict[process]=h2
     return histos_region_dict
 
@@ -319,13 +319,14 @@ def ARC_plot(hData,hMC,hTotalBkg,labelsMC,colorsMC,xlabel,outputFile,xRange=[],y
     plt.savefig(outputFile)
 
 
-def plot_projection(histos_dict, region, processes, labels_dict, colors_dict, axis="X",yRange=[],yRangeLog=[1,10**5]):
+def plot_projection(histos_dict, region, processes, labels_dict, colors_dict, axis="X",yRange=[],yRangeLog=[1,10**5], prefit=False):
     if axis not in ["X", "Y"]:
         raise ValueError("Invalid axis. Choose 'X' or 'Y'.")
 
     # Set up variables
     axis_label = "$M_{X}$ [GeV]" if axis == "X" else "$M_{Y}$ [GeV]"
     file_suffix = "mX" if axis == "X" else "mY"
+    file_suffix += "_Prefit" if prefit else "_Postfit"
     x_range = [800,4500] if axis == "X" else [300,4500]
     projection_method = f"Projection{axis}"
 
@@ -353,9 +354,20 @@ def plot_projection(histos_dict, region, processes, labels_dict, colors_dict, ax
     h_bkg = PyHist(h_bkg)
     h_bkg.divide_by_bin_width()
 
-    ARC_plot(h_data, h_mc, h_bkg,labels_mc, colors_mc,axis_label,f"B2G_unblinding/postfit_distributions/{region}_{file_suffix}.pdf",xRange=x_range,yRange=yRange,projectionText=region.replace("_", " "),yRangeLog=yRangeLog)
+    for ext in ['pdf','png']:
+        ARC_plot(h_data, h_mc, h_bkg,labels_mc, colors_mc,axis_label,f"B2G_unblinding/postfit_distributions/{region}_{file_suffix}.{ext}",xRange=x_range,yRange=yRange,projectionText=region.replace("_", " "),yRangeLog=yRangeLog)
 
 if __name__ == "__main__":
+
+    from argparse import ArgumentParser
+    parser = ArgumentParser()
+    parser.add_argument('--prefit', dest='prefit',
+                        action='store_true',
+                        help='Plot prefit distributions instead of postfit')
+    args = parser.parse_args()
+
+    prefit = args.prefit
+
     input_file = "B2G_unblinding/Unblinded_0x0/postfitshapes_b.root"
 
     proc_base = ['WJets','ZJets','NMSSM-XHY-1800-1200','ttbar']
@@ -368,8 +380,8 @@ if __name__ == "__main__":
     procs_SR_fail = procs + ['Background_SR_fail','data_obs','TotalBkg']
 
     histos_dict = {}
-    histos_dict['SR_fail'] = get_hists(input_file,'SR_fail',procs_SR_fail)
-    histos_dict['SR_pass'] = get_hists(input_file,'SR_pass',procs_SR_pass)
+    histos_dict['SR_fail'] = get_hists(input_file,'SR_fail',procs_SR_fail,prefit)
+    histos_dict['SR_pass'] = get_hists(input_file,'SR_pass',procs_SR_pass,prefit)
 
 
     labels_dict = {}
@@ -401,4 +413,4 @@ if __name__ == "__main__":
         'SR_fail':procs_SR_fail
     }.items():
         for axis in ['X','Y']:
-            plot_projection(histos_dict,k,v,labels_dict,colors_dict,axis=axis)
+            plot_projection(histos_dict,k,v,labels_dict,colors_dict,axis=axis, prefit=prefit)

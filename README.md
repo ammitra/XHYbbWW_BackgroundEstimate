@@ -185,7 +185,7 @@ python scripts/plot_gof.py --sig $sig --tf $tf --seed $seed
 **TODO:** Maybe write a condor script for gof submission. Though, we only need to do this once (since there is only one VR) and it doesn't take too long to run 500 toys locally. 
 
 
-## UNBLINDED LIMITS 
+## Unblinded Limits
 
 It was determined that a `0x0` transfer function was best after unblinding (see `B2G_unblinding/README.md`).
 
@@ -199,6 +199,18 @@ source scripts/unblinded_limits.sh -l --tf 0x0 --sig $sig --rMax $rMax --strat $
 To run on condor:
 ```
 python condor/submit_limits.py --sig $sig --tf 0x0 --seed 123456 --rMax $rMax --unblind
+```
+
+## Significance
+
+To run locally for a single mass pt:
+```
+source scripts/unblinded_limits.sh -ws --sig $sig --tf 0x0
+```
+
+To run locally for all mass pts:
+```
+source scripts/run_significance_local.sh
 ```
 
 **NOTES:**

@@ -107,15 +107,25 @@ freezeVR="var{Background_VR.*},rgx{Background_VR.*}"
 ulimit -s unlimited
 
 if [ $workspace = 1 ]; then 
-    if [ ! -d $cards_dir ]; then 
-        echo "#####################################################"
-        echo "Making unblinded workspace for ${sig}, ${tf}"
-        python VR.py --SRtf $tf --VRtf $tf -s $sig -w "${sig}_" --makeCardUnblinded
-        echo "Creating RooWorkspace with channel masks..."
-        mkdir -p $outsdir
-        (set -x; text2workspace.py "${cards_dir}card.txt" --channel-masks -o "${cards_dir}${wsm}.root")
-        echo "#####################################################"
-    fi 
+    echo "#####################################################"
+    echo "Making unblinded workspace for ${sig}, ${tf}"
+    python VR.py --SRtf $tf --VRtf $tf -s $sig -w "${sig}_" --makeCardUnblinded
+    echo "Creating RooWorkspace with channel masks..."
+    mkdir -p $outsdir
+    (set -x; text2workspace.py "${cards_dir}card.txt" --channel-masks -o "${cards_dir}${wsm}.root")
+    # if [ ! -d $cards_dir ]; then 
+    #     echo "#####################################################"
+    #     echo "Making unblinded workspace for ${sig}, ${tf}"
+    #     python VR.py --SRtf $tf --VRtf $tf -s $sig -w "${sig}_" --makeCardUnblinded
+    #     echo "Creating RooWorkspace with channel masks..."
+    #     mkdir -p $outsdir
+    #     (set -x; text2workspace.py "${cards_dir}card.txt" --channel-masks -o "${cards_dir}${wsm}.root")
+    #     echo "#####################################################"
+    # elif [ ! -f "${cards_dir}${wsm}.root" ]; then 
+    #     echo "Creating RooWorkspace with channel masks..."
+    #     mkdir -p $outsdir
+    #     (set -x; text2workspace.py "${cards_dir}card.txt" --channel-masks -o "${cards_dir}${wsm}.root")
+    # fi 
 fi
 
 if [ $bfit = 1 ]; then 
@@ -159,6 +169,7 @@ fi
 if [ $significance = 1 ]; then
     echo "Significance"
     cd $cards_dir
+    mkdir -p $outsdir
     (set -x; combine -M Significance -m 125 -n "" -d $wsm.root -v $verbosity --rMax $rmax --saveWorkspace --saveToys -s "$seed" --toysFrequentist) 2>&1 | tee $outsdir/Significance.txt
     cd $cwd
 fi

@@ -53,6 +53,8 @@ python B2G_unblinding/unblind.py --tf [tf] --plot
 
 If you want the 1D projections for the paper:
 ```
-python B2G_unblinding/paper_plots.py
+python B2G_unblinding/paper_plots.py [--prefit]
 ```
+
+where `--prefit` will plot the prefit distributions instead of postfit (the default). Note that prefit distributions will be weird due to how 2DAlphabet initializes the QCD and TF values.
 
