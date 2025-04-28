@@ -12,6 +12,7 @@ import pandas as pd
 from argparse import ArgumentParser
 parser = ArgumentParser()
 parser.add_argument('--unblinded', dest='unblinded', action='store_true')
+args = parser.parse_args()
 
 plt.style.use(hep.style.CMS)
 hep.style.use("CMS")
@@ -87,9 +88,8 @@ def scatter2d(arr, title, name):
 
 def colormesh(xx, yy, lims, label, name):
     fig, ax = plt.subplots(figsize=(12, 8))
-    _ = plt.pcolormesh(
-        xx, yy, lims, norm=matplotlib.colors.LogNorm(vmin=0.05, vmax=1e4), cmap="viridis"
-    )
+    pcol = plt.pcolormesh(xx, yy, lims, norm=matplotlib.colors.LogNorm(vmin=0.05, vmax=1e4), cmap="viridis",linewidth=0, rasterized=True)
+    pcol.set_edgecolor('face')
     # plt.title(title)
     plt.xlabel(r"$m_{X}$ (GeV)")
     plt.ylabel(r"$m_{Y}$ (GeV)")
@@ -118,10 +118,14 @@ for key, grid in grids.items():
     elif key == 3: label = '84.0'
     elif key == 4: label = '97.5'
     elif key == 5: label = 'Observed'
-    t = '95% CL %s expected upper limits (fb)'%('Median' if label=='50.0' else label+'%')
-    colormesh(xx, yy, grid, t, "plots/limit2D_interp_{}.pdf".format(label))
 
-for key in range(5):
+    if key < 5:
+        t = f'95% CL {label}% expected upper limits (fb)'
+    else:
+        t = 'Observed upper limit (fb)'
+    colormesh(xx, yy, grid, t, "plots/limit2D_interp_{}.pdf".format(label.replace('.','p')))
+
+for key in range(6):
     if key == 0: label = '2.5'
     elif key == 1: label = '16.0'
     elif key == 2: label = '50.0'
@@ -129,5 +133,9 @@ for key in range(5):
     elif key == 4: label = '97.5'
     elif key == 5: label = 'Observed'
     val = limits[key]
-    t = '95% CL %s expected exclusion limits (fb)'%('Median' if label=='50.0' else label+'%')
-    scatter2d(val, t, "plots/limit2D_scatter_{}.pdf".format(label))
+
+    if key < 5:
+        t = f'95% CL {label}% expected upper limits (fb)'
+    else:
+        t = 'Observed upper limit (fb)'
+    scatter2d(val, t, "plots/limit2D_scatter_{}.pdf".format(label.replace('.','p')))

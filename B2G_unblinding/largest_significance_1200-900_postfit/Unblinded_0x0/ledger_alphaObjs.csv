@@ -1,0 +1,5 @@
+,process,region,obj,norm,process_type,color,combine_idx,title
+0,Background_VR_fail,VR_fail,,,BKG,yellow,,QCD
+1,Background_SR_fail,SR_fail,,,BKG,yellow,,QCD
+2,Background_VR_pass_0x0,VR_pass,,,BKG,yellow,,QCD
+3,Background_SR_pass_0x0,SR_pass,,,BKG,yellow,,QCD

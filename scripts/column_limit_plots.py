@@ -19,9 +19,9 @@ import pandas as pd
 from collections import OrderedDict
 
 # Main plotting routine for each axes
-def plot_limit_1D(ax, x_axis_vals, xMass, m2, m1, med, p1, p2):
+def plot_limit_1D(ax, x_axis_vals, xMass, m2, m1, med, p1, p2, obs):
     '''
-    pass numpy arrays for the +/-1, +/-2, and median expected limits and the axes on which to draw.
+    pass numpy arrays for the +/-1, +/-2 median expected and observed limits and the axes on which to draw.
     '''
     green = '#607641' 
     yellow = '#F5BB54'
@@ -42,6 +42,7 @@ def plot_limit_1D(ax, x_axis_vals, xMass, m2, m1, med, p1, p2):
     ax.fill_between(x_axis_vals, m2, p2, color=yellow, label=r'$\pm 2\sigma$')
     ax.fill_between(x_axis_vals, m1, p1, color=green, label=r'$\pm 1\sigma$')
     ax.plot(x_axis_vals, med, color='black', linestyle='--', label='Expected 95% CL limit')
+    ax.plot(x_axis_vals, obs, color='black', marker = 'o', markersize=2, label='Observed limit')
 
     ax.text(0.3, 0.95, r'$m_{X} = %s$ GeV'%(xMass), ha='center', va='top', fontsize='small', transform=ax.transAxes)
 
@@ -51,7 +52,7 @@ xs = ['800', '900', '1000', '1200', '1400', '1600', '1800', '2000', '2200', '240
 ys = ['300', '350', '400', '450', '500', '600', '700', '800', '900', '1000', '1100', '1200', '1300', '1400', '1600', '1800', '2000', '2200', '2400', '2500', '2600', '2800']
 
 # 0: minus2, 1: minus2, 2: median, 3: plus1, 4: plus2, 5: observed
-dfs  = {0:None, 1:None, 2:None, 3:None, 4:None}
+dfs  = {0:None, 1:None, 2:None, 3:None, 4:None, 5:None}
 sigs = OrderedDict([(mx,dfs.copy()) for mx in xs])
 
 # Now populate the dfs dict with the full dataframes of all the limits 
@@ -66,6 +67,8 @@ for i in range(len(dfs)):
         fname = 'limits/limits_Plus1.csv'
     elif i == 4:
         fname = 'limits/limits_Plus2.csv'
+    elif i == 5:
+        fname = 'limits/limits_OBSERVED.csv'
     else:
         raise ValueError(f'Have not yet run observed limits (i=={i})')
     lim = pd.read_csv(fname)
@@ -93,6 +96,7 @@ for i, mX in enumerate(xs):
     med = lims[2]['Limit (fb)'].values
     p1  = lims[3]['Limit (fb)'].values
     p2  = lims[4]['Limit (fb)'].values
+    obs = lims[5]['Limit (fb)'].values
     plot_limit_1D(
         ax = ax, 
         x_axis_vals = y_vals, 
@@ -101,7 +105,8 @@ for i, mX in enumerate(xs):
         m1 = m1, 
         med = med,
         p1 = p1, 
-        p2 = p2
+        p2 = p2,
+        obs=obs
     )
     # until I figure out a better way to apply a common x/y-axis label to subplots...
     if i == 0:

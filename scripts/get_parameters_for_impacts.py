@@ -36,3 +36,6 @@ def getParameters():
 
 params = getParameters()
 print(' '.join(params))
+print()
+print()
+print(','.join(params))
